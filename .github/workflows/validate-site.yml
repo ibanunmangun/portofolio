@@ -1,0 +1,55 @@
+name: Validate portfolio site
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate-html:
+    name: Validate HTML
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Parse and validate landing page
+        run: |
+          python3 - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          page = Path("index.html")
+          if not page.is_file():
+              raise SystemExit("Missing required file: index.html")
+
+          source = page.read_text(encoding="utf-8")
+          required_fragments = (
+              "<!doctype html>",
+              "<html",
+              "<head>",
+              "<body",
+              "<title>",
+              "<meta name=\"viewport\"",
+              "<main",
+              "</html>",
+          )
+          missing = [item for item in required_fragments if item not in source.lower()]
+          if missing:
+              raise SystemExit(f"Missing required HTML fragments: {', '.join(missing)}")
+
+          class Validator(HTMLParser):
+              def error(self, message):
+                  raise RuntimeError(message)
+
+          Validator().feed(source)
+          Validator().close()
+          print("index.html parsed and required document structure is present")
+          PY
