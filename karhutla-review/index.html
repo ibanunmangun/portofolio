@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A public-data portfolio demonstrator for reviewing satellite thermal signals in Central Kalimantan, Indonesia.">
+  <meta name="theme-color" content="#0b0f0d">
+  <title>Karhutla Signal Review | Ibanun Mangun Kusumo</title>
+  <link rel="stylesheet" href="vendor/leaflet-1.9.4.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#map-heading">Skip to map controls</a>
+  <header class="site-header">
+    <a class="back-link" href="../" aria-label="Back to portfolio home">Portfolio home</a>
+    <p class="project-label">Central Kalimantan, Indonesia · September 2026 snapshot</p>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <p class="kicker">Public-data portfolio demonstrator</p>
+      <h1 id="page-title">Karhutla Signal Review</h1>
+      <p class="dek">A bounded workflow for reading satellite thermal signals with time, confidence, spatial clustering, and kabupaten context.</p>
+      <p class="boundary">This page is not an emergency-warning system. It is not a confirmed fire register. It is not a burned-area estimate.</p>
+    </section>
+
+    <section class="map-workspace" aria-labelledby="map-heading">
+      <div class="workspace-head">
+        <div>
+          <p class="kicker">Signal workspace</p>
+          <h2 id="map-heading">Review context, not incident claims</h2>
+        </div>
+        <button class="plain-button" type="button" id="reset-map">Reset view</button>
+      </div>
+
+      <div class="workspace-grid">
+        <aside class="controls" aria-label="Map layer controls">
+          <fieldset>
+            <legend>Visible layers</legend>
+            <label class="toggle-row"><input type="checkbox" id="toggle-admin" checked> Kabupaten boundaries</label>
+            <label class="toggle-row"><input type="checkbox" id="toggle-clusters" checked> Review clusters</label>
+            <label class="toggle-row"><input type="checkbox" id="toggle-signals" checked> High-confidence signals</label>
+          </fieldset>
+          <div class="legend" aria-label="Map legend">
+            <p>Legend</p>
+            <span><i class="legend-cluster" aria-hidden="true"></i> Cluster, 5 or more signals</span>
+            <span><i class="legend-signal" aria-hidden="true"></i> High-confidence signal</span>
+            <span><i class="legend-boundary" aria-hidden="true"></i> Kabupaten boundary</span>
+          </div>
+          <p class="control-note">Use the map or keyboard navigation to select a cluster. The panel updates with source-backed snapshot details.</p>
+        </aside>
+
+        <div class="map-frame">
+          <div id="map" aria-label="Interactive map of Central Kalimantan satellite signal review clusters" aria-busy="true"></div>
+          <div id="map-state" class="map-state" role="status" aria-live="polite">Loading snapshot layers.</div>
+        </div>
+
+        <aside class="detail" aria-live="polite" aria-labelledby="detail-heading">
+          <p class="kicker">Selected review unit</p>
+          <h2 id="detail-heading">Choose a cluster</h2>
+          <p id="detail-copy">Select an orange cluster marker to view its signal count, time span, confidence mix, and kabupaten context.</p>
+          <dl id="detail-list" class="detail-list" hidden></dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="method" aria-labelledby="method-heading">
+      <div class="method-title">
+        <p class="kicker">Method and boundary</p>
+        <h2 id="method-heading">From signal to review unit</h2>
+      </div>
+      <div class="method-copy">
+        <p>NASA FIRMS VIIRS NOAA-20 NRT thermal detections were retrieved as a fixed September 2026 snapshot, then clipped to Central Kalimantan using HDX administrative boundaries. The source records represent thermal signals, not confirmed fire incidents.</p>
+        <p>For this demonstrator, nearby signals are grouped into transparent review units using an approximately 10 km grid cell and a three-day time bucket. Clusters provide a place to start contextual review. They do not establish cause, responsibility, burned area, or response priority.</p>
+      </div>
+    </section>
+
+    <section class="provenance" aria-labelledby="provenance-heading">
+      <div>
+        <p class="kicker">Snapshot provenance</p>
+        <h2 id="provenance-heading">Fixed data, stated limits</h2>
+      </div>
+      <dl class="provenance-list">
+        <div><dt>Period</dt><dd>1–30 September 2026</dd></div>
+        <div><dt>Signal product</dt><dd>NASA FIRMS VIIRS NOAA-20 NRT</dd></div>
+        <div><dt>Display filter</dt><dd>High-confidence signals; clusters with 5+ signals</dd></div>
+        <div><dt>Boundary source</dt><dd>HDX COD-AB Indonesia, filtered to Central Kalimantan</dd></div>
+      </dl>
+      <p class="source-links"><a href="https://firms.modaps.eosdis.nasa.gov/" target="_blank" rel="noreferrer">NASA FIRMS source</a><a href="https://data.humdata.org/dataset/cod-ab-idn" target="_blank" rel="noreferrer">HDX boundary source</a><a href="https://sipongi.gakkum.kehutanan.go.id/" target="_blank" rel="noreferrer">Official Indonesia fire context</a></p>
+    </section>
+  </main>
+
+  <footer><span>Ibanun Mangun Kusumo</span><span>Portfolio demonstrator · public data snapshot</span></footer>
+</body>
+</html>

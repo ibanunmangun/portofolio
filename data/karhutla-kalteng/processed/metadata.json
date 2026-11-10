@@ -1,0 +1,23 @@
+{
+  "snapshot_id": "kalteng-2026-09-v1",
+  "region": "Central Kalimantan, Indonesia",
+  "period": [
+    "2026-09-01",
+    "2026-09-30"
+  ],
+  "source": "VIIRS_NOAA20_NRT",
+  "processing": "NRT snapshot; points clipped to HDX COD-AB Central Kalimantan boundary; review clusters use ~10 km grid cells and 3-day buckets.",
+  "display_filters": {
+    "signals_high_confidence_only": true,
+    "clusters_minimum_signal_count": 5
+  },
+  "counts": {
+    "raw_bounded_rows": 95239,
+    "province_clipped_signals": 65006,
+    "review_clusters": 4435,
+    "display_high_confidence_signals": 1888,
+    "display_review_clusters": 2153,
+    "display_cluster_signals": 60462
+  },
+  "limitations": "Thermal detections and derived clusters are not confirmed fire incidents, burned-area boundaries, cause, or response recommendations."
+}

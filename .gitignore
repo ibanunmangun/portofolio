@@ -1,0 +1,7 @@
+# Locally retrieved source data. Keep API-originated raw files out of Git.
+data/karhutla-kalteng/raw/
+
+# Full derived artifacts are traceable through the pipeline but too large for
+# the static portfolio payload. The browser uses reviewed display layers.
+data/karhutla-kalteng/processed/signals.geojson
+data/karhutla-kalteng/processed/clusters.geojson
