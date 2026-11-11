@@ -132,15 +132,18 @@
     .statement h2 span { color: var(--accent); }
 
     .work { padding: clamp(72px, 10vw, 138px) 0; }
-    .section-intro { max-width: 660px; }
+    .section-intro { max-width: 700px; }
     .section-intro h2 { margin: 14px 0; font: 600 clamp(2.2rem, 4.5vw, 4.5rem)/1 "Source Serif 4", Georgia, serif; letter-spacing: -.045em; }
     .section-intro p { color: var(--muted); margin: 0; }
-    .case-study-link { display: inline-block; margin-top: 22px; }
     .lanes { margin-top: 60px; border-top: 1px solid var(--line); }
-    .lane { display: grid; grid-template-columns: 70px minmax(140px, .55fr) 1.25fr; gap: 28px; align-items: start; padding: 29px 0 32px; border-bottom: 1px solid var(--line); }
+    .lane { display: grid; grid-template-columns: 70px minmax(170px, .65fr) 1.25fr; gap: 28px; align-items: start; padding: 29px 0 32px; border-bottom: 1px solid var(--line); }
     .lane-index { color: var(--accent); font: .74rem "DM Mono", monospace; padding-top: 4px; }
     .lane h3 { margin: 0; font-size: 1.04rem; line-height: 1.25; }
+    .lane-copy { display: grid; gap: 16px; }
     .lane p { margin: 0; color: var(--muted); font-size: .92rem; max-width: 560px; }
+    .evidence-link { width: fit-content; min-height: 44px; display: inline-flex; align-items: center; color: var(--ink); font-size: .79rem; font-weight: 700; border-bottom: 1px solid var(--accent-deep); }
+    .evidence-link:hover { color: var(--accent); border-color: var(--accent); }
+    .practice-note { color: var(--muted); font: .72rem "DM Mono", monospace; letter-spacing: .02em; }
 
     .principle { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .principle-wrap { min-height: 430px; display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(35px, 8vw, 115px); align-items: center; }
@@ -167,7 +170,8 @@
       .map-field { min-height: 320px; margin-bottom: 55px; }
       .statement { grid-template-columns: 1fr; gap: 23px; }
       .lane { grid-template-columns: 42px 1fr; gap: 14px; }
-      .lane p { grid-column: 2; }
+      .lane-copy { grid-column: 2; }
+      .lane p { grid-column: auto; }
       .principle-wrap { grid-template-columns: 1fr; padding: 74px 0; }
       footer { flex-direction: column; }
     }
@@ -179,7 +183,7 @@
     <header>
       <a href="#top" class="wordmark" aria-label="Back to top"><span class="mark"></span> IBANUN MANGUN KUSUMO</a>
       <nav aria-label="Primary navigation">
-        <a href="#focus">Focus</a>
+        <a href="#work">Work</a>
         <a href="#approach">Approach</a>
         <a href="https://www.linkedin.com/in/ibanunmangun" target="_blank" rel="noreferrer">LinkedIn ↗</a>
       </nav>
@@ -210,28 +214,44 @@
         <h2>Geospatial data, AI, and operational reality should work together. They should not create more work for the people using them. <span>That is the system I design for.</span></h2>
       </section>
 
-      <section class="work" id="focus" aria-labelledby="focus-heading">
+      <section class="work" id="work" aria-labelledby="work-heading">
         <div class="section-intro">
-          <div class="eyebrow mono">Current focus</div>
-          <h2 id="focus-heading">From maps to dependable systems.</h2>
-          <p>Karhutla Signal Review is the first published case study: a bounded public-data workflow for reviewing satellite thermal signals in Central Kalimantan.</p>
-          <a class="text-link case-study-link" href="karhutla-review/">Open the case study ↗</a>
+          <div class="eyebrow mono">Areas of practice</div>
+          <h2 id="work-heading">From observation to interpretable spatial systems.</h2>
+          <p>Four connected areas of practice. Public case studies appear here only when their methods, boundaries, and outputs are ready to examine.</p>
         </div>
         <div class="lanes">
           <article class="lane">
             <div class="lane-index">01</div>
-            <h3>AI &amp; workflow automation</h3>
-            <p>Designing practical systems that reduce repetitive processing while preserving clear review points, accountability, and useful outputs.</p>
+            <h3>Remote Sensing</h3>
+            <div class="lane-copy">
+              <p>Satellite imagery, thermal-signal review, raster analysis, and reproducible detection workflows.</p>
+              <a class="evidence-link" href="karhutla-review/">Karhutla Signal Review, Central Kalimantan</a>
+            </div>
           </article>
           <article class="lane">
             <div class="lane-index">02</div>
-            <h3>Geospatial intelligence</h3>
-            <p>Applying spatial analysis, mapping, imagery, and data engineering to help teams understand places, assets, and operational conditions.</p>
+            <h3>Cartography</h3>
+            <div class="lane-copy">
+              <p>Thematic maps, interactive web mapping, spatial communication, and decision-oriented map design.</p>
+              <span class="practice-note">Public case study in development.</span>
+            </div>
           </article>
           <article class="lane">
             <div class="lane-index">03</div>
-            <h3>Solution architecture</h3>
-            <p>Turning ambiguous operational needs into structured systems with defined inputs, sound boundaries, and an implementable path forward.</p>
+            <h3>AI Automations</h3>
+            <div class="lane-copy">
+              <p>Python workflows, agent-assisted processes, review boundaries, and automation that reduces operational friction.</p>
+              <span class="practice-note">Public case study in development.</span>
+            </div>
+          </article>
+          <article class="lane">
+            <div class="lane-index">04</div>
+            <h3>3D GIS Visualization</h3>
+            <div class="lane-copy">
+              <p>3D spatial data processing, terrain and built-environment visualization, point-cloud workflows, and interpretable geospatial scenes.</p>
+              <span class="practice-note">Public case study in development.</span>
+            </div>
           </article>
         </div>
       </section>
