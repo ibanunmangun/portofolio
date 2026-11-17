@@ -108,9 +108,15 @@ def main():
         raise SystemExit(f"Page missing required limitation or asset: {', '.join(missing)}")
 
     app = (ROOT / "aceh-tamiang-flood-review" / "app.js").read_text(encoding="utf-8")
-    required_app = ("L.imageOverlay", "terrain.output", GIBS_URL, "imageryToggle.checked", "imageryNotice.hidden", "imageryAttribution.hidden")
+    required_app = ("L.imageOverlay", "terrain.output", GIBS_URL, "imageryToggle.checked", "imageryNotice.hidden", "imageryAttribution.hidden", "maxBounds: terrainBounds", "maxBoundsViscosity: 1.0", "const viewPadding = [20, 20];", "map.fitBounds(bounds, { padding: viewPadding });", "map.setMinZoom(map.getZoom())", "reset-map")
     if missing := [text for text in required_app if text not in app]:
         raise SystemExit(f"Map application missing required relief or imagery behavior: {', '.join(missing)}")
+    initial_fit = app.index("map.fitBounds(bounds, { padding: viewPadding });")
+    min_zoom = app.index("map.setMinZoom(map.getZoom())")
+    reset_handler = app.index("document.getElementById('reset-map').addEventListener")
+    reset_fit = app.index("map.fitBounds(bounds, { padding: viewPadding })", reset_handler)
+    if not initial_fit < min_zoom < reset_handler < reset_fit:
+        raise SystemExit("Map bounds, min zoom, and reset order mismatch")
     if "L.tileLayer('https://{s}.tile.openstreetmap.org" in app:
         raise SystemExit("OSM basemap must not be restored")
 

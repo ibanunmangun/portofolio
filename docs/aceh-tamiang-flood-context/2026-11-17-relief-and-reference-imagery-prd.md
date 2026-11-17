@@ -128,6 +128,8 @@ Controls:
 - Terrain relief stays on and is not a user toggle.
 - Satellite imagery is a native checkbox, off by default.
 - Reset returns to the full context extent. It does not change the imagery toggle state.
+- The full Aceh Tamiang context view defines the responsive minimum zoom. Users cannot zoom out beyond it.
+- Panning is constrained to the documented local terrain-relief extent, which is the Aceh Tamiang context plus its 15 km buffer.
 - Satellite imagery control, attribution, and limitation remain keyboard-accessible and mobile-safe.
 
 ## Validation requirements
