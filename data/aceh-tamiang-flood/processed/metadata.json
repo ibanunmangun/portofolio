@@ -31,6 +31,49 @@
     "Highlighted polygons are administrative areas named in a dated report.",
     "An area not highlighted was not named in this report snapshot and may still have been affected.",
     "Administrative boundaries are reference geometry and do not trace the edge of floodwater.",
-    "Boundary geometry is from a 2020 HDX administrative-boundary release and is used as reference context, not an authoritative legal boundary determination."
-  ]
+    "Boundary geometry is from a 2020 HDX administrative-boundary release and is used as reference context, not an authoritative legal boundary determination.",
+    "Terrain relief is a general reference context derived from a Copernicus digital surface model and is not flood evidence."
+  ],
+  "terrain_relief": {
+    "role": "Reference terrain context, not flood evidence.",
+    "source": "Copernicus WorldDEM-30 GLO-30",
+    "source_version": "Copernicus DEM GLO-30, COG 10 degree tiles",
+    "source_urls": [
+      "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N03_00_E097_00_DEM/Copernicus_DSM_COG_10_N03_00_E097_00_DEM.tif",
+      "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N03_00_E098_00_DEM/Copernicus_DSM_COG_10_N03_00_E098_00_DEM.tif",
+      "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N04_00_E097_00_DEM/Copernicus_DSM_COG_10_N04_00_E097_00_DEM.tif",
+      "https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_N04_00_E098_00_DEM/Copernicus_DSM_COG_10_N04_00_E098_00_DEM.tif"
+    ],
+    "source_tile_sha256": {
+      "Copernicus_DSM_COG_10_N03_00_E097_00_DEM.tif": "1799498da38657572b914ada559e0026ee1d34e2682db1b0afd102e0ef130d6d",
+      "Copernicus_DSM_COG_10_N03_00_E098_00_DEM.tif": "45f9dbc852ddc212db07339fc99f6b4db427843e9131c606aafc1f4396ed1f31",
+      "Copernicus_DSM_COG_10_N04_00_E097_00_DEM.tif": "b7683fd91cfed4dd4c49df02c018009905f8fd6e637ae25e7eccef140bf753f6",
+      "Copernicus_DSM_COG_10_N04_00_E098_00_DEM.tif": "b31cd3c26c161ca20d9590e6bb51a162e53caed5f1601d5625d9415334516f16"
+    },
+    "attribution": "Produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved.",
+    "buffer_km": 15,
+    "bounds_wgs84": [
+      97.579637226,
+      3.74846344,
+      98.422329574,
+      4.65913526
+    ],
+    "processing": "Web Mercator reprojection at 100 m pixels, then GDAL multidirectional hillshade with compute_edges; PNG display scale 32-220.",
+    "output": "terrain-hillshade.png",
+    "pixel_dimensions": {
+      "width": 938,
+      "height": 1017
+    },
+    "byte_size": 420700,
+    "sha256": "4c796e16d7be3bc4279e53d9f3fb5363379b63cfd8611b88e0d3bd14c40b199c"
+  },
+  "satellite_reference": {
+    "role": "Optional reference imagery, not event-date flood evidence.",
+    "provider": "NASA Global Imagery Browse Services (GIBS)",
+    "product_id": "MODIS_Terra_CorrectedReflectance_TrueColor",
+    "fixed_date": "2026-11-16",
+    "tile_endpoint": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_CorrectedReflectance_TrueColor/default/2026-11-16/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg",
+    "acknowledgement": "We acknowledge the use of imagery provided by services from NASA's Global Imagery Browse Services (GIBS), part of NASA's Earth Science Data and Information System (ESDIS).",
+    "default_enabled": false
+  }
 }

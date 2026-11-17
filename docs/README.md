@@ -18,6 +18,7 @@ This directory holds project-level guidance and case-study documentation.
 ### Cartography
 
 - [Aceh Tamiang Flood Context Review](aceh-tamiang-flood-context/PRD.md): a dated reported administrative footprint, not a flood-extent map.
+- [Aceh relief and reference imagery enhancement](aceh-tamiang-flood-context/2026-11-17-relief-and-reference-imagery-prd.md): local Copernicus terrain relief and optional fixed-date NASA GIBS reference imagery, neither presented as flood evidence.
 
 ## Documentation status
 
