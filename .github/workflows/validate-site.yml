@@ -64,3 +64,19 @@ jobs:
 
       - name: Validate Karhutla page, provenance, and display assets
         run: python3 scripts/validate_kalteng_case_study.py
+
+      - name: Validate Aceh Tamiang report-footprint assets
+        run: python3 scripts/validate_aceh_tamiang_flood_context.py
+
+      - name: Check case-study JavaScript syntax
+        run: |
+          node --check karhutla-review/app.js
+          node --check aceh-tamiang-flood-review/app.js
+
+      - name: Scan published assets for credential assignments
+        run: |
+          if grep -RInE --include='*.html' --include='*.js' --include='*.json' --include='*.geojson' 'FIRMS_MAP_KEY|api[_-]?key[[:space:]]*[:=]|secret[[:space:]]*[:=]|password[[:space:]]*[:=]|token[[:space:]]*[:=]' index.html karhutla-review aceh-tamiang-flood-review data; then
+            echo "Potential published credential assignment found" >&2
+            exit 1
+          fi
+          echo "No published credential assignments found"
