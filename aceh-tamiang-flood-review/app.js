@@ -61,7 +61,13 @@
         throw new Error('Terrain-relief metadata is incomplete');
       }
       const [west, south, east, north] = terrain.bounds_wgs84;
-      const map = L.map('map', { zoomControl: true, attributionControl: true });
+      const terrainBounds = L.latLngBounds([[south, west], [north, east]]);
+      const map = L.map('map', {
+        zoomControl: true,
+        attributionControl: true,
+        maxBounds: terrainBounds,
+        maxBoundsViscosity: 1.0,
+      });
       map.attributionControl.setPrefix(false);
       L.imageOverlay(asset(terrain.output), [[south, west], [north, east]], {
         opacity: 0.34,
@@ -94,8 +100,10 @@
         },
       }).addTo(map);
       const bounds = adminLayer.getBounds();
-      map.fitBounds(bounds, { padding: [20, 20] });
-      document.getElementById('reset-map').addEventListener('click', () => map.fitBounds(bounds, { padding: [20, 20] }));
+      const viewPadding = [20, 20];
+      map.fitBounds(bounds, { padding: viewPadding });
+      map.setMinZoom(map.getZoom());
+      document.getElementById('reset-map').addEventListener('click', () => map.fitBounds(bounds, { padding: viewPadding }));
       report.features.sort((a, b) => a.properties.subdistrict.localeCompare(b.properties.subdistrict)).forEach((feature) => {
         const button = document.createElement('button');
         button.type = 'button';
