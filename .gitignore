@@ -1,5 +1,8 @@
 # Locally retrieved source data. Keep API-originated raw files out of Git.
 data/karhutla-kalteng/raw/
+data/aceh-tamiang-flood/raw/
+.cache/
+scripts/__pycache__/
 
 # Full derived artifacts are traceable through the pipeline but too large for
 # the static portfolio payload. The browser uses reviewed display layers.
