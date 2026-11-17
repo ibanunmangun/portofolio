@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A public-data cartographic portfolio study of report-named flood impact areas in Aceh Tamiang, November 2026.">
+  <meta name="theme-color" content="#0b0f0d">
+  <title>Aceh Tamiang Flood Context Review | Ibanun Mangun Kusumo</title>
+  <link rel="stylesheet" href="../karhutla-review/vendor/leaflet-1.9.4.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#map-heading">Skip to map controls</a>
+  <header><a href="../" class="back-link">Portfolio home</a><p>ACEH TAMIANG · REPORT SNAPSHOT · 16 NOV 2026</p></header>
+  <main>
+    <section class="intro"><p class="kicker">Cartographic context review</p><h1>Aceh Tamiang Flood Context Review</h1><p class="dek">A dated map of administrative areas named in a public flood report. The highlighted polygons communicate report coverage, not the edge of floodwater.</p><p class="boundary">This page is not an emergency-warning system. It is not a flood-extent map. It does not estimate water depth, damage, or response priority.</p></section>
+    <section class="workspace" aria-labelledby="map-heading">
+      <div class="workspace-head"><div><p class="kicker">Report footprint map</p><h2 id="map-heading">Areas named in the 16 November report</h2></div><button id="reset-map" type="button">Reset view</button></div>
+      <div class="workspace-grid">
+        <aside class="controls"><div class="legend"><p>Legend</p><span><i class="reported" aria-hidden="true"></i> Named in 16 Nov report</span><span><i class="context" aria-hidden="true"></i> Administrative boundary context</span></div><p class="control-note">A highlighted polygon is a subdistrict named in the report snapshot. It is not a mapped flood boundary.</p></aside>
+        <div class="map-frame"><div id="map" aria-label="Interactive map of Aceh Tamiang report-named flood impact areas" aria-busy="true"></div><div id="map-state" class="map-state" role="status" aria-live="polite">Loading report footprint.</div></div>
+        <aside class="detail" aria-live="polite"><p class="kicker">Selected area</p><h2 id="detail-heading">Choose a report-named area</h2><p id="detail-copy">Select a highlighted polygon or an item in the report list. The detail panel explains the map meaning.</p><dl id="detail-list" hidden></dl><div class="report-list"><p>Report-named areas</p><div id="area-list"></div></div></aside>
+      </div>
+    </section>
+    <section class="method"><div><p class="kicker">Method and limits</p><h2>Administrative footprint, not inundation extent</h2></div><div><p>The map extracts Aceh Tamiang subdistrict geometry from the HDX COD-AB Indonesia administrative-boundary release and highlights the five subdistricts named in a 16 November 2026 report. The map does not infer a physical flood perimeter from those boundaries.</p><p>Satellite flood mapping needs event-specific validation and can miss or misclassify water in built-up or densely vegetated areas. No reproducible event-specific satellite extent was included in this case study.</p></div></section>
+    <section class="provenance"><div><p class="kicker">Snapshot provenance</p><h2>Read the boundary with its evidence</h2></div><dl><div><dt>Report snapshot</dt><dd>16 November 2026</dd></div><div><dt>Highlighted units</dt><dd>Five named subdistricts</dd></div><div><dt>Boundary context</dt><dd>HDX COD-AB Indonesia, 2020</dd></div><div><dt>Map claim</dt><dd>Reported administrative footprint</dd></div></dl><p class="source-links"><a href="https://en.tempo.co/read/2123741/over-2600-displaced-as-floods-hit-aceh-tamiang-again" target="_blank" rel="noreferrer">Report source</a><a href="https://data.humdata.org/dataset/cod-ab-idn" target="_blank" rel="noreferrer">HDX boundary source</a><a href="https://un-spider.org/advisory-support/recommended-practices/recommended-practice-google-earth-engine-flood-mapping/in-detail" target="_blank" rel="noreferrer">Flood mapping limits</a></p></section>
+  </main><footer><span>Ibanun Mangun Kusumo</span><span>Public-data portfolio demonstrator</span></footer>
+</body></html>

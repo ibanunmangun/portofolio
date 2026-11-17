@@ -1,0 +1,36 @@
+{
+  "snapshot_id": "aceh-tamiang-flood-report-2026-11-16-v1",
+  "title": "Aceh Tamiang Flood Context Review, November 2026",
+  "region": "Aceh Tamiang Regency, Aceh, Indonesia",
+  "report_snapshot_date": "2026-11-16",
+  "report_published_date": "2026-11-16",
+  "report_source": "https://en.tempo.co/read/2123741/over-2600-displaced-as-floods-hit-aceh-tamiang-again",
+  "boundary_source": "https://data.humdata.org/dataset/cod-ab-idn",
+  "boundary_version": "HDX COD-AB Indonesia administrative boundaries, 2020",
+  "boundary_archive_sha256": "d285a40f9fc4b726b1bda98ee833d52d23d94fe78b6a47c0a769d2e912ff0970",
+  "output_checksums_sha256": {
+    "aceh-tamiang-admin3.geojson": "fe62b093a72370a00321fccfc51f333636fa1ce1a7342ef24c589552d575c78a",
+    "reported-impact-footprint.geojson": "afe4fc4464464c3b91f0cd0c3bc5300e46c4d2646492a2aac37fb35c99c4123a"
+  },
+  "processing": "Filter local HDX ADM3 features where adm2_name is Aceh Tamiang; select report-named subdistricts using an explicit fixed name list.",
+  "reported_subdistricts": [
+    "Kota Kuala Simpang",
+    "Kejuruan Muda",
+    "Karang Baru",
+    "Rantau",
+    "Bendahara"
+  ],
+  "counts": {
+    "aceh_tamiang_subdistrict_context": 12,
+    "report_named_subdistricts": 5
+  },
+  "limitations": [
+    "This is not an emergency-warning system.",
+    "This is not a flood-extent map.",
+    "This does not estimate water depth, damage, or response priority.",
+    "Highlighted polygons are administrative areas named in a dated report.",
+    "An area not highlighted was not named in this report snapshot and may still have been affected.",
+    "Administrative boundaries are reference geometry and do not trace the edge of floodwater.",
+    "Boundary geometry is from a 2020 HDX administrative-boundary release and is used as reference context, not an authoritative legal boundary determination."
+  ]
+}
